@@ -1,29 +1,34 @@
-const eventEmmiter = require('events');
-const { logEventes } = require('./logEvents');
+const EventEmmiter = require('events');
+const { logEvents } = require('./logEvents');
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
 const fsPromises = require('fs').promises;
 
-// class Emmiter extends eventEmmiter { }
-// const emitter = new Emmiter()
+class Emmiter extends EventEmmiter { }
+const emitter = new Emmiter()
+emitter.on('log', (message, fileName) => {
+    logEvents(message, fileName)
+})
 
 
 const PORT = process.env.PORT || 3000
 const serveFile = async (filePath, contentType, response) => {
-    const data = await fsPromises.readFile(filePath, 'utf-8')
     try {
-        console.log('data: ', data);
-        response.writeHead(200, { 'content-Type': contentType })
-        response.end(data)
+        const rawData = await fsPromises.readFile(filePath, contentType.includes('image') ? "" : 'utf-8')
+        const data = contentType === 'application/json' ? JSON.parse(rawData) : rawData
+        response.writeHead(filePath.includes('404.html') ? 404 : 200, { 'content-Type': contentType })
+        response.end(contentType === 'application/json' ? JSON.stringify(data) : data)
 
     } catch (error) {
         console.log(error)
+        emitter.emit('log', `${error.name}:${error.meassage}`, 'errorLog.txt')
         response.statusCode = 500
-        response.end(data)
+        response.end()
     }
 }
 const server = http.createServer((req, res) => {
+    emitter.emit('log', `${req.url}\t${req.method}`, 'reqLog.txt')
     let extension = path.extname(req.url)
     let contentType;
 
@@ -62,8 +67,6 @@ const server = http.createServer((req, res) => {
     if (fileExist) {
         serveFile(filePath, contentType, res)
     } else {
-
-        console.log('path.parse(filePath).base: ', path.parse(filePath).base);
         switch (path.parse(filePath).base) {
             case 'old-page.html':
                 res.writeHead(301, { "location": '/new-page.html' })
@@ -86,9 +89,7 @@ server.listen(PORT, () => console.log(`Server runing on ${PORT}`))
 
 
 
-// emitter.on('log', (message) => {
-//     logEventes(message)
-// })
+
 
 // setTimeout(() => {
 //     emitter.emit('log', 'log event emmited')
