@@ -11,8 +11,8 @@ const fsPromises = require('fs').promises;
 
 const PORT = process.env.PORT || 3000
 const serveFile = async (filePath, contentType, response) => {
+    const data = await fsPromises.readFile(filePath, 'utf-8')
     try {
-        const data = await fsPromises.readFile(filePath, 'utf-8')
         console.log('data: ', data);
         response.writeHead(200, { 'content-Type': contentType })
         response.end(data)
@@ -20,7 +20,7 @@ const serveFile = async (filePath, contentType, response) => {
     } catch (error) {
         console.log(error)
         response.statusCode = 500
-        response.end()
+        response.end(data)
     }
 }
 const server = http.createServer((req, res) => {
@@ -74,7 +74,7 @@ const server = http.createServer((req, res) => {
                 res.end()
                 break;
             default:
-                serveFile(path.join(__dirname, 'views', '404.html'), 'tex/html', res)
+                serveFile(path.join(__dirname, 'views', '404.html'), 'text/html', res)
                 break;
         }
     }
