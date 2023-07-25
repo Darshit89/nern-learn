@@ -404,3 +404,10 @@
 20230725	12:40:09	55954ed0-68ff-40fb-827d-13632d2e6a39	POST	 undefined	 /employees/
 20230725	12:40:22	42b2001e-cfc9-42e1-8966-c85d48ef4419	GET	 undefined	 /employees/1
 20230725	12:41:32	efe0fe19-171f-456b-b808-32d73cd6a0e9	GET	 undefined	 /employees/1
+20230725	14:13:35	e68c71b4-5890-4a29-8819-690e893db1b7	GET	 undefined	 /employees/1
+20230725	14:13:40	5856f96e-c44b-4f26-8688-887c2b2a497b	POST	 undefined	 /employees/1
+20230725	14:13:47	23b25184-3b79-4e0b-aa06-63241d61af90	POST	 undefined	 /employees/
+20230725	14:14:22	2adc496e-fb94-431b-b02f-15b41ff03721	POST	 undefined	 /employees/
+20230725	14:14:27	93d6d51c-b747-4f58-8ab8-719e6341d330	PUT	 undefined	 /employees/
+20230725	14:14:40	93fc4515-87a7-48ad-8623-299a509399c2	PUT	 undefined	 /employees/
+20230725	14:14:47	d8090eeb-db28-4838-a77c-35b152fc5b6f	DELETE	 undefined	 /employees/
