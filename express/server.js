@@ -3,7 +3,6 @@ const path = require('path');
 const cors = require('cors');
 const { logger } = require('./middleware/logEvents');
 const { erroHandler } = require('./middleware/errorHandler');
-const { router } = require('./routers/subdir');
 const corsOption = require('./config/corsOptions');
 const PORT = process.env.PORT || 3000
 const app = express()
@@ -21,10 +20,8 @@ app.use(express.json())
 
 
 app.use('/', express.static(path.join(__dirname, 'public')))
-app.use('/subdir', express.static(path.join(__dirname, 'public')))
 
 app.use('/', require('./routers/root'))
-app.use('/subdir', require('./routers/subdir'))
 app.use('/employees', require('./routers/api/employees')),
 
 
