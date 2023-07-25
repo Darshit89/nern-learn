@@ -22,21 +22,24 @@ app.use(express.json())
 app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use('/', require('./routers/root'))
-app.use('/employees', require('./routers/api/employees')),
+app.use('/employees', require('./routers/api/employees'))
+app.use('/register', require('./routers/api/register'))
+app.use('/auth', require('./routers/api/auth '))
 
 
 
-    app.all('*', (req, res) => {
-        console.log('req.accepts', req.accepts('html'));
-        res.status(404)
-        if (req.accepts('html')) {
-            res.sendFile(path.join(__dirname, 'views', '404.html'))
-        } else if (req.accepts('json')) {
-            res.json({ error: '404 Not Found' })
-        } else {
-            res.type('txt').send('4o4 not found')
-        }
-    })
+
+app.all('*', (req, res) => {
+    console.log('req.accepts', req.accepts('html'));
+    res.status(404)
+    if (req.accepts('html')) {
+        res.sendFile(path.join(__dirname, 'views', '404.html'))
+    } else if (req.accepts('json')) {
+        res.json({ error: '404 Not Found' })
+    } else {
+        res.type('txt').send('4o4 not found')
+    }
+})
 
 app.use(erroHandler)
 

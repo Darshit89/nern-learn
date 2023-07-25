@@ -1,5 +1,8 @@
 
 
+
+const fs = require('fs')
+const path = require('path')
 const data = {
     employees: require('../model/employees.json'),
     setEmployee: function (data) {
@@ -24,7 +27,11 @@ const createEmployee = (req, res) => {
     }
 
     data.setEmployee([...data.employees, newEmployee])
-    res.status(201).json(data.employees)
+    fs.writeFile(path.join(__dirname, '..', 'model', 'employees.json'), JSON.stringify(data.employees), (err) => {
+        if (!err) {
+            res.status(201).json(data.employees)
+        }
+    })
 }
 
 const updateEmployee = (req, res) => {
@@ -40,7 +47,11 @@ const updateEmployee = (req, res) => {
     const filterArray = data.employees.filter(employee => employee.id !== parseInt(req.body.id))
     const unSortedArray = [...filterArray, employee]
     data.setEmployee(unSortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0))
-    res.json(data.employees)
+    fs.writeFile(path.join(__dirname, '..', 'model', 'employees.json'), JSON.stringify(data.employees), (err) => {
+        if (!err) {
+            res.json(data.employees)
+        }
+    })
 }
 
 const deleteEmployee = (req, res) => {
@@ -50,7 +61,11 @@ const deleteEmployee = (req, res) => {
     }
     const filterArray = data.employees.filter(employee => employee.id !== parseInt(req.body.id))
     data.setEmployee([...filterArray])
-    res.json(data.employees)
+    fs.writeFile(path.join(__dirname, '..', 'model', 'employees.json'), JSON.stringify(data.employees), (err) => {
+        if (!err) {
+            res.json(data.employees)
+        }
+    })
 }
 
 const getEmployee = (req, res) => {
