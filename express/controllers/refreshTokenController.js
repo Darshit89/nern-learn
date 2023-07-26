@@ -3,7 +3,6 @@ const userDB = {
     setUser: function (data) { this.users = data }
 }
 var jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 const handleRefreshToken = async (req, res) => {
     const cokkies = req.cookies
@@ -22,9 +21,7 @@ const handleRefreshToken = async (req, res) => {
             if (err || userFound.username !== decoded.username) {
                 return res.sendStatus(403)
             }
-            const acessToken = jwt.sign({
-                "username": decoded.username
-            }, process.env.ACCESS_TOKEN_SECRET,
+            const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": Object.values(userFound.roles) } }, process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: '50s' })
             res.json({ acessToken })
         })
