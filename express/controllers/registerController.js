@@ -11,8 +11,6 @@ const handleNewUser = async (req, res) => {
         const hasedpwd = await bcrypt.hash(password, 10)
         //store user
         const result = await User.create({ 'username': user, "password": hasedpwd })
-        console.log('result: ', result);
-
         res.status(201).json({ 'success': `new user ${user} create` })
     } catch (error) {
         res.status(500).json({ 'message': error.message })

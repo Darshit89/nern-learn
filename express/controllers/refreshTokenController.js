@@ -1,17 +1,12 @@
-const userDB = {
-    users: require('../model/user.json'),
-    setUser: function (data) { this.users = data }
-}
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const User = require('../model/user');
 
 const handleRefreshToken = async (req, res) => {
     const cokkies = req.cookies
     if (!cokkies?.jwt) return res.sendStatus(401)
     const refreshToken = cokkies?.jwt
 
-    const userFound = userDB.users.find(person => {
-        return person.refreshToken === refreshToken
-    })
+    const userFound = await User.findOne({ refreshToken }).exec()
     if (!userFound) {
         return res.sendStatus(403)
     }
@@ -22,7 +17,7 @@ const handleRefreshToken = async (req, res) => {
                 return res.sendStatus(403)
             }
             const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": Object.values(userFound.roles) } }, process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: '50s' })
+                { expiresIn: '1d' })
             res.json({ acessToken })
         })
 }
