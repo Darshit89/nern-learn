@@ -10,4 +10,4 @@ const corsOption = {
     optionsSuccessStatus: 200
 }
 
-module.exports = corsOption
+module.exports = { corsOption, wishList }
