@@ -2,3 +2,27 @@
 20230725	11:02:31	ae1547fd-8f5d-4cb1-a771-e1be09faa3df	Error Not allowed by CORS
 20230725	11:11:18	93bf9fab-f0ed-4980-a7bd-f548a3411c6e	Error Not allowed by CORS
 20230725	11:46:14	d1901037-9ec5-4bbb-a558-fbf728f5956d	TypeError path must be absolute or specify root to res.sendFile
+20230727	15:44:33	fc760f52-ac48-4861-bcc1-34efde1b73b3	Error Not allowed by CORS
+20230727	15:45:03	bdf77f3a-845e-4cdc-9cf7-004b7761fd32	Error Not allowed by CORS
+20230727	15:45:11	ea4d2172-53a8-4054-b84a-62c8d869c70b	Error Not allowed by CORS
+20230727	15:45:41	aac0b0eb-fa3b-45de-85b0-9f1f0651d5fa	Error Not allowed by CORS
+20230727	15:48:35	83b5b702-4622-4774-ae7d-b40553ce8b42	Error Not allowed by CORS
+20230727	15:49:37	265ed674-2914-4898-bb3c-408e6572faa6	Error Not allowed by CORS
+20230727	15:50:13	950690e7-1790-484f-b3fc-22192cc9682e	Error Not allowed by CORS
+20230727	15:52:06	05c64a99-4038-4af0-908e-55e250334b15	Error Not allowed by CORS
+20230727	15:52:08	2c105d7f-63dc-4678-92f7-d2cec682c339	Error Not allowed by CORS
+20230727	15:52:11	7de42a48-1185-4b36-bd2f-4bb8c05945d9	Error Not allowed by CORS
+20230727	15:52:11	d8e1a9b0-8e49-4aa3-b61c-ddaa735ecef7	Error Not allowed by CORS
+20230727	15:52:12	2200900a-2652-428c-a1eb-ca86102a7313	Error Not allowed by CORS
+20230727	15:52:12	d49d2a0c-b8fb-46ba-8efb-cff87d74f102	Error Not allowed by CORS
+20230727	15:52:12	9e780f3a-fbcc-4824-bd49-3cde20c03399	Error Not allowed by CORS
+20230727	15:52:13	bdbd944a-88fe-4ff2-8216-9de710669572	Error Not allowed by CORS
+20230727	15:52:14	7a334714-c941-432a-81d8-ede863abbe7b	Error Not allowed by CORS
+20230727	15:52:14	129a78ad-b474-4c76-abdb-4a5f7e3327e8	Error Not allowed by CORS
+20230727	15:52:14	4b4b170b-5db6-494a-b9d1-a1e2d750f80e	Error Not allowed by CORS
+20230727	15:52:15	5222b764-1aaf-4ddd-b4af-a001d3d10d26	Error Not allowed by CORS
+20230727	15:52:15	f49a8190-9abc-4479-9b72-2a922ccc2c76	Error Not allowed by CORS
+20230727	15:52:16	30095c6c-cca6-4d64-8b4a-96fd2919b993	Error Not allowed by CORS
+20230727	15:52:16	2cf20504-2425-4900-8597-9415c82882f2	Error Not allowed by CORS
+20230727	15:52:16	d2e7f5d8-e397-41c0-9916-fd2b747838ec	Error Not allowed by CORS
+20230727	15:52:28	64d4908e-1a16-4d0f-80d8-0dd28735a3f8	Error Not allowed by CORS

@@ -13,7 +13,8 @@ const handleLogin = async (req, res) => {
 
     const match = bcrypt.compare(password, userFound.password)
     if (match) {
-        const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": Object.values(userFound.roles) } },
+        const roles = Object.values(userFound.roles).filter(Boolean) //filter(Boolean) remove emply or null undefine value it's trick.
+        const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": roles } },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: '60s' }
         )
@@ -26,9 +27,8 @@ const handleLogin = async (req, res) => {
         //saving refresh token
         userFound.refreshToken = refreshToken
         const result = await userFound.save()
-        console.log('result auth: ', result);
         res.cookie('jwt', refreshToken, { httpOnly: true, sameSite: 'None', secure: true, maxAge: 24 * 60 * 60 * 1000 })
-        res.json({ acessToken })
+        res.json({ acessToken, roles })
     } else {
         res.sendStatus(401)
     }
