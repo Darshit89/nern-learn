@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { faCheck, faInfoCircle, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from './api/axios';
+import axios from '../api/axios';
 
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;

@@ -808,3 +808,5 @@
 20230728	12:46:42	1cf50ff1-c08d-4128-8a1a-9ca35b57fef9	POST	 http://localhost:5173	 /auth
 20230728	12:47:26	0d2ba22f-92a1-4e56-a2fa-96b1bae6ccf4	OPTIONS	 http://localhost:5173	 /auth
 20230728	12:47:26	21696943-7313-4fc9-a19a-021dc38749e2	POST	 http://localhost:5173	 /auth
+20230728	13:19:28	54ff82aa-7912-49ac-b6d1-b306eeac1afd	OPTIONS	 http://localhost:5173	 /auth
+20230728	13:19:28	3f75a11b-cb96-4ff8-b58a-c09d5d5ef20e	POST	 http://localhost:5173	 /auth
