@@ -16,12 +16,12 @@ const handleLogin = async (req, res) => {
         const roles = Object.values(userFound.roles).filter(Boolean) //filter(Boolean) remove emply or null undefine value it's trick.
         const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": roles } },
             process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '60s' }
+            { expiresIn: '20s' }
         )
         //not need to add roles in refresh token eventually refresh token gives a new access token
         const refreshToken = jwt.sign({ "username": userFound.username },
             process.env.REFRESH_TOKEN_SECRET,
-            { expiresIn: '1d' }
+            { expiresIn: '40s' }
         )
 
         //saving refresh token

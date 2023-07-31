@@ -21,7 +21,7 @@ app.use(logger)
 // and fetch cookies credentials requirement	
 app.use(credentials)
 
-//cors third party middlewar
+//cors third party middleware
 app.use(cors(corsOption))
 
 //built in middleware for handle urlencoded data

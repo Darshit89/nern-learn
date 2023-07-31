@@ -7,6 +7,7 @@ const handleRefreshToken = async (req, res) => {
     const refreshToken = cokkies?.jwt
 
     const userFound = await User.findOne({ refreshToken }).exec()
+    const roles=Object.values(userFound.roles)
     if (!userFound) {
         return res.sendStatus(403)
     }
@@ -17,8 +18,8 @@ const handleRefreshToken = async (req, res) => {
                 return res.sendStatus(403)
             }
             const acessToken = jwt.sign({ "userInfo": { "username": userFound.username, "roles": Object.values(userFound.roles) } }, process.env.ACCESS_TOKEN_SECRET,
-                { expiresIn: '1d' })
-            res.json({ acessToken })
+                { expiresIn: '20s' })
+            res.json({ acessToken ,roles:roles})
         })
 }
 

@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <main className='App'>
-      <Register/>
-    </main>
-  )
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
-export default App
+export default App;
